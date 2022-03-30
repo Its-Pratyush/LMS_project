@@ -24,7 +24,7 @@ router.post('/add', (req, res) => {
         if (err) {
             console.log(err);
         }
-        res.redirect('/');
+        res.redirect('dashboard');
     });
 });
 
@@ -32,7 +32,7 @@ router.post('/delete', (req, res) => {
     const id = req.body.id;
 
     tasks.findOneAndRemove({ _id: id }, (err, doc) => {
-        res.redirect('/');
+        res.redirect('dashboard');
     });
 });
 
@@ -40,7 +40,7 @@ router.post('/update', (req, res) => {
     const id = req.body.id;
 
     tasks.findOneAndUpdate({ _id: id }, { status: true }, (err, doc) => {
-        res.redirect('/');
+        res.redirect('dashboard');
     });
 
 });
